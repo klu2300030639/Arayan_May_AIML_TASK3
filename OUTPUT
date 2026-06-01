@@ -1,0 +1,78 @@
+Dataset Shape: (891, 12)
+
+Missing Values Before Cleaning
+PassengerId      0
+Survived         0
+Pclass           0
+Name             0
+Sex              0
+Age            177
+SibSp            0
+Parch            0
+Ticket           0
+Fare             0
+Cabin          687
+Embarked         2
+dtype: int64
+
+
+==================================================
+Logistic Regression
+==================================================
+Accuracy : 0.8101
+Precision: 0.7857
+Recall   : 0.7432
+F1 Score : 0.7639
+
+Confusion Matrix
+[[90 15]
+ [19 55]]
+
+
+==================================================
+KNN
+==================================================
+Accuracy : 0.8045
+Precision: 0.7826
+Recall   : 0.7297
+F1 Score : 0.7552
+
+Confusion Matrix
+[[90 15]
+ [20 54]]
+/tmp/ipykernel_11335/1027044241.py:25: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df["Age"].fillna(df["Age"].median(), inplace=True)
+/tmp/ipykernel_11335/1027044241.py:26: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df["Embarked"].fillna(df["Embarked"].mode()[0], inplace=True)
+
+
+==================================================
+Random Forest
+==================================================
+Accuracy : 0.8156
+Precision: 0.7887
+Recall   : 0.7568
+F1 Score : 0.7724
+
+Confusion Matrix
+[[90 15]
+ [18 56]]
+
+
+==================================================
+MODEL COMPARISON
+==================================================
+             Algorithm  Accuracy  Precision    Recall  F1 Score
+2        Random Forest  0.815642   0.788732  0.756757  0.772414
+0  Logistic Regression  0.810056   0.785714  0.743243  0.763889
+1                  KNN  0.804469   0.782609  0.729730  0.755245
